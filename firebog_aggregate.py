@@ -79,7 +79,7 @@ def process_category(heading, element, global_seen):
     category_domains = set()
     for url in urls:
         try:
-            response = requests.get(url, timeout=15)
+            response = requests.get(url, timeout=60)
             response.raise_for_status()
             added = 0
             for line in response.text.splitlines():
@@ -91,7 +91,7 @@ def process_category(heading, element, global_seen):
                 # Add domain if not seen globally
                 if clean_line not in global_seen:
                     category_domains.add(clean_line)
-                    global_seen.add(clean_line)
+                    # global_seen.add(clean_line)
                     added += 1
             print(f"✅ {os.path.basename(url)[:30]:<30} | Added {added} new domains")
         except Exception as e:
