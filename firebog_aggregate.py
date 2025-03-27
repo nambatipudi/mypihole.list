@@ -91,7 +91,7 @@ def process_category(heading, element, global_seen):
                 # Add domain if not seen globally
                 if clean_line not in global_seen:
                     category_domains.add(clean_line)
-                    # global_seen.add(clean_line)
+                    global_seen.add(clean_line)
                     added += 1
             print(f"✅ {os.path.basename(url)[:30]:<30} | Added {added} new domains")
         except Exception as e:
