@@ -84,7 +84,7 @@ def process_category(heading, element, global_seen):
             added = 0
             for line in response.text.splitlines():
                 # Strip comments and whitespace
-                clean_line = line.split('#', 1)[0].strip()
+                clean_line = line.strip()
                 if not clean_line:
                     continue
                 
